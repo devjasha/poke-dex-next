@@ -70,46 +70,12 @@ const Detail = ({ params: { id } }, PageProps) => {
           style={{ backgroundColor: colours[type.types[0].type.name] }}
         ></div>
         <div className="relative ">
-          <div className="absolute right-[10%] -bottom-[10%]">
-            <div className="relative w-14 h-auto rotate-[150deg]">
-              <div className="w-14 h-14 border-4 border-black dark:border-white rounded-full absolute t-2/4 l-2/4 -translate-x-2/4 translate-y-0">
-                <div className="-rotate-[150deg] w-full h-full flex items-center justify-center">
-                  {type.base_experience}
-                </div>
-              </div>
-            </div>
+          <div className="block">
+            <PokemonImage
+              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+              name={pokemonName}
+            />
           </div>
-          <div className="absolute left-[0%] bottom-[5%]">
-            <div className="relative w-14 h-auto rotate-[210deg]">
-              <div className="w-10 h-10 border-4 border-black dark:border-white rounded-full absolute t-2/4 l-2/4 -translate-x-2/4 translate-y-0">
-                <div className="-rotate-[210deg] w-full h-full flex items-center justify-center">
-                  {type.height}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute left-[3%] top-[3%]">
-            <div className="relative w-14 h-auto -rotate-[40deg]">
-              <div className="w-12 h-12 border-4 border-black dark:border-white rounded-full absolute t-2/4 l-2/4 -translate-x-2/4 translate-y-0">
-                <div className="rotate-[40deg] w-full h-full flex items-center justify-center">
-                  {details.base_happiness}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute -right-[4%] top-[5%]">
-            <div className="relative w-14 h-auto rotate-[30deg]">
-              <div className="w-16 h-16 border-4 border-black dark:border-white rounded-full absolute t-2/4 l-2/4 -translate-x-2/4 translate-y-0">
-                <div className="-rotate-[30deg] w-full h-full flex items-center justify-center">
-                  {details.capture_rate}
-                </div>
-              </div>
-            </div>
-          </div>
-          <PokemonImage
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-            name={details.name}
-          />
         </div>
       </div>
       <section className="flex flex-col items-center justify-center mt-8 lg:w-2/4 lg:px-[5%] lg:mt-0">
@@ -186,6 +152,31 @@ const Detail = ({ params: { id } }, PageProps) => {
             </p>
           ))}
         </div>
+        <div className="w-full mt-10 lg:mt-24">
+          <div className="flex items-center">
+            <h1 className="text-2xl">Shiny</h1>
+            <HiOutlineSparkles
+              className="h-8 w-8 ml-3"
+              style={{
+                color: colours[type.types[0].type.name],
+              }}
+            />
+          </div>
+          <div className="mt-5 flex items-center">
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`}
+              width="100"
+              height="100"
+              alt={pokemonName}
+            />
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${id}.png`}
+              width="100"
+              height="100"
+              alt={pokemonName}
+            />
+          </div>
+        </div>
         {locations.length > 0 && (
           <div className="w-full mt-10 lg:mt-24">
             <div className="flex items-center">
@@ -256,25 +247,6 @@ const Detail = ({ params: { id } }, PageProps) => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="w-full mt-10 lg:mt-24">
-          <div className="flex items-center">
-            <h1 className="text-2xl">Shiny</h1>
-            <HiOutlineSparkles
-              className="h-8 w-8 ml-3"
-              style={{
-                color: colours[type.types[0].type.name],
-              }}
-            />
-          </div>
-          <div>
-            <Image
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`}
-              width="100"
-              height="100"
-              alt={pokemonName}
-            />
-          </div>
         </div>
       </section>
     </div>

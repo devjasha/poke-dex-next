@@ -28,7 +28,7 @@ const PokemonList = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center flex-col">
+    <section className="min-h-screen flex flex-col pl-9 pr-9">
       <div className="flex flex-wrap justify-center">
         {pokemon?.results?.slice(0, count).map((pokemon, index) => {
           const id = pokemon.url.split(/pokemon\/(\d+)/gi)[1];
@@ -44,12 +44,14 @@ const PokemonList = () => {
           );
         })}
       </div>
-      <button
-        onClick={handleClick}
-        className="py-3 px-6 my-10 rounded-md text-white dark:text-black bg-black dark:bg-white"
-      >
-        Load More
-      </button>
+      <div className="w-full flex items-center justify-center">
+        <button
+          onClick={handleClick}
+          className="py-3 px-6 w-auto my-10 rounded-md text-white dark:text-black bg-black dark:bg-white"
+        >
+          Load More
+        </button>
+      </div>
     </section>
   );
 };
