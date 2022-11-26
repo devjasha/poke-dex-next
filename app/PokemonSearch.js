@@ -50,7 +50,11 @@ const PokemonSearch = () => {
           className="px-4 py-2 rounded-md  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white text-white dark:text-black"
           id="input"
         />
-        <a href={newLink} onClick={handleClick} className="ml-3">
+        <a
+          href={newLink}
+          onClick={handleClick}
+          className="ml-3 rounded-md px-3 py-2 bg-black text-white dark:bg-white dark:text-black "
+        >
           Search
         </a>
       </div>
