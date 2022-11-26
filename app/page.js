@@ -1,5 +1,5 @@
-import Stage from "../components/stage";
-import PokemonList from "../components/pokemon-list";
+import Stage from "./Stage";
+import PokemonList from "./PokemonList";
 
 const Home = () => {
   return (
