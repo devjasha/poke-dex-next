@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { TbPokeball } from "react-icons/tb";
 
 export default function Home() {
   const [navbar, setNavbar] = useState(false);
@@ -13,13 +14,7 @@ export default function Home() {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <Link href="/" className="flex items-center">
-                <Image
-                  src="/images/logo.png"
-                  height="20"
-                  width="20"
-                  alt="logo pokedex"
-                  className="mr-2"
-                />
+                <TbPokeball className="mr-3 w-auto h-7" />
                 <h2 className="text-2xl font-bold">Pokedex</h2>
               </Link>
               <div className="md:hidden">
@@ -62,7 +57,7 @@ export default function Home() {
           </div>
           <div className="flex justify-end">
             <div
-              className={`w-32 rounded-lg border-2 border-gray-400 px-5 py-5 mt-3 md:block md:pb-0 md:mt-0 md:border-0 ${
+              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:p-0 md:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:block md:pb-0 md:mt-0 md:border-0 ${
                 navbar ? "block" : "hidden"
               }`}
             >
