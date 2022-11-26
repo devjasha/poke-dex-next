@@ -11,7 +11,9 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { IoStatsChart, IoLocationSharp } from "react-icons/io5";
+import { HiOutlineSparkles } from "react-icons/hi";
 import Link from "next/link";
+import Image from "next/image";
 
 const getData = async (url) => {
   const data = await axios
@@ -62,12 +64,6 @@ const Detail = ({ params: { id } }, PageProps) => {
 
   return (
     <div className="flex relative flex-col lg:flex-row min-h-screen overflow-hidden pt-28 pl-9 pr-9 pb-9 lg:pt-0">
-      <Link
-        href="/"
-        className="h-16 w-auto rounded-full border-1 border-black absolute top-2/4"
-      >
-        <AiOutlineClose />
-      </Link>
       <div className=" flex items-center justify-center lg:h-screen lg:w-2/4 lg:fixed lg:right-0">
         <div
           className="lg:absolute lg:top-0 lg:right-0 lg:h-[120vh] lg:w-full lg:-mr-6 lg:block lg:rotate-2 hidden"
@@ -260,6 +256,25 @@ const Detail = ({ params: { id } }, PageProps) => {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="w-full mt-10 lg:mt-24">
+          <div className="flex items-center">
+            <h1 className="text-2xl">Shiny</h1>
+            <HiOutlineSparkles
+              className="h-8 w-8 ml-3"
+              style={{
+                color: colours[type.types[0].type.name],
+              }}
+            />
+          </div>
+          <div>
+            <Image
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`}
+              width="100"
+              height="100"
+              alt={pokemonName}
+            />
+          </div>
         </div>
       </section>
     </div>
