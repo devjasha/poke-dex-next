@@ -8,6 +8,7 @@ const PokemonImage = ({ image, name, fallback }) => {
         width={500}
         alt={name}
         onError={fallback}
+        style={{ width: "30rem", height: "auto" }}
       />
     </div>
   );

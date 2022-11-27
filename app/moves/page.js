@@ -38,7 +38,6 @@ const PokemonMoveList = () => {
               </Link>
             </li>
           ))}
-          );
         </ul>
       </div>
     </section>

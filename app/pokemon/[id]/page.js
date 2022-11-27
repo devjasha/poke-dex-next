@@ -74,7 +74,7 @@ const Detail = ({ params: { id } }, PageProps) => {
           className="lg:absolute lg:top-0 lg:right-0 lg:h-[120vh] lg:w-full lg:-mr-6 lg:block lg:rotate-2 hidden"
           style={{ backgroundColor: colours[type.types[0].type.name] }}
         ></div>
-        <div className="relative ">
+        <div className="relative">
           <PokemonImage
             image={`/ani-front/${pokemonName}.gif`}
             alt={pokemonName}
