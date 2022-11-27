@@ -55,13 +55,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end md:items-center">
             <div
-              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:p-0 md:dark:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:block md:pb-0 md:mt-0 md:border-0 ${
+              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:dark:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:mt-0 md:block lg:pb-0 lg:mt-0 md:border-0 md:w-auto lg:w-auto ${
                 navbar ? "block" : "hidden"
               }`}
             >
-              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+              <ul className="items-center justify-center md:flex md:space-y-0 md:space-x-3 space-y-3">
                 <li>
                   <Link href="/">Home</Link>
                 </li>
