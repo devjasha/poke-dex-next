@@ -47,7 +47,7 @@ const PokemonSearch = () => {
         <input
           ref={inputRef}
           placeholder="Search for a pokemon ..."
-          className="px-4 py-2 rounded-md  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white dark:text-black mr-3"
+          className="px-4 py-2 w-[80%] rounded-md  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white dark:text-black mr-3"
           id="input"
         />
         <a
