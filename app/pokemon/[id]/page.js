@@ -14,6 +14,7 @@ import { IoStatsChart, IoLocationSharp } from "react-icons/io5";
 import { HiOutlineSparkles } from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
+import PokemonMoveList from "./PokemonMoveList";
 
 const getData = async (url) => {
   const data = await axios
@@ -60,6 +61,10 @@ const Detail = ({ params: { id } }, PageProps) => {
     dark: "#705746",
     steel: "#B7B7CE",
     fairy: "#D685AD",
+  };
+
+  const getMoveInformation = () => {
+    console.log(true);
   };
 
   return (
@@ -158,7 +163,7 @@ const Detail = ({ params: { id } }, PageProps) => {
                 </h3>
                 {abilityData.effect_entries.map((entry, index) => (
                   <p key={index} className="mt-2 lg:max-w-[60%]">
-                    {entry.language.name === "en" ? entry.effect : ""}
+                    {entry.language.name === "en" && entry.effect}
                   </p>
                 ))}
               </div>
@@ -243,24 +248,7 @@ const Detail = ({ params: { id } }, PageProps) => {
             </div>
           ))}
         </div>
-        <div className="w-full mt-10 lg:mt-24">
-          <div className="flex items-center">
-            <h1 className="text-2xl">Moves</h1>
-            <AiOutlineFileText
-              className="h-8 w-8 ml-3"
-              style={{
-                color: colours[type.types[0].type.name],
-              }}
-            />
-          </div>
-          <ul>
-            {type.moves.map((name, index) => (
-              <li key={index} className="mt-2">
-                {name.move.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <PokemonMoveList id={id} />
       </section>
     </div>
   );
