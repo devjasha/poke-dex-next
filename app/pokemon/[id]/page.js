@@ -76,8 +76,9 @@ const Detail = ({ params: { id } }, PageProps) => {
         ></div>
         <div className="relative ">
           <PokemonImage
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-            name={pokemonName}
+            image={`/ani-front/${pokemonName}.gif`}
+            alt={pokemonName}
+            fallback={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
           />
         </div>
       </div>
