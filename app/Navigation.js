@@ -57,7 +57,7 @@ export default function Home() {
           </div>
           <div className="flex justify-end">
             <div
-              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:p-0 md:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:block md:pb-0 md:mt-0 md:border-0 ${
+              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:p-0 md:dark:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:block md:pb-0 md:mt-0 md:border-0 ${
                 navbar ? "block" : "hidden"
               }`}
             >
