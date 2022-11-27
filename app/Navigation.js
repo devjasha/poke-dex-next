@@ -66,13 +66,13 @@ export default function Home() {
                   <Link href="/">Home</Link>
                 </li>
                 <li>
+                  <Link href="/moves">Moves</Link>
+                </li>
+                <li>
                   <Link href="/about">About</Link>
                 </li>
                 <li>
                   <Link href="/contact">Contact</Link>
-                </li>
-                <li>
-                  <Link href="/moves">Moves</Link>
                 </li>
               </ul>
             </div>
