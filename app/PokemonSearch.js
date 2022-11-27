@@ -53,7 +53,7 @@ const PokemonSearch = () => {
         <a
           href={newLink}
           onClick={handleClick}
-          className="rounded-md px-3 py-2 bg-black text-white dark:bg-white dark:text-black"
+          className="rounded-md px-3 py-2 bg-black text-white dark:bg-white dark:text-black mt-3 lg:mt-0"
         >
           Search
         </a>
