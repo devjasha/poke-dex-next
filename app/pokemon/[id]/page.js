@@ -70,12 +70,10 @@ const Detail = ({ params: { id } }, PageProps) => {
           style={{ backgroundColor: colours[type.types[0].type.name] }}
         ></div>
         <div className="relative ">
-          <div className="block">
-            <PokemonImage
-              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-              name={pokemonName}
-            />
-          </div>
+          <PokemonImage
+            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+            name={pokemonName}
+          />
         </div>
       </div>
       <section className="flex flex-col items-center justify-center mt-8 lg:w-2/4 lg:px-[5%] lg:mt-0">
