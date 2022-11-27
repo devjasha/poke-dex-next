@@ -144,11 +144,26 @@ const Detail = ({ params: { id } }, PageProps) => {
               }}
             />
           </div>
-          {type.abilities.map((ability, index) => (
-            <p key={index} className="mt-5 uppercase">
-              {ability.ability.name}
-            </p>
-          ))}
+          {type.abilities.map((ability, index) => {
+            const abilityData = use(
+              getData(
+                `https://pokeapi.co/api/v2/ability/${ability.ability.name}`
+              )
+            );
+
+            return (
+              <div key={index} className="mt-3">
+                <h3 className=" text-md uppercase font-bold">
+                  {abilityData.name}
+                </h3>
+                {abilityData.effect_entries.map((entry, index) => (
+                  <p key={index} className="mt-2 lg:max-w-[60%]">
+                    {entry.language.name === "en" ? entry.effect : ""}
+                  </p>
+                ))}
+              </div>
+            );
+          })}
         </div>
         <div className="w-full mt-10 lg:mt-24">
           <div className="flex items-center">
