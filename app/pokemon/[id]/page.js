@@ -15,6 +15,7 @@ import { HiOutlineSparkles } from "react-icons/hi";
 import Link from "next/link";
 import Image from "next/image";
 import PokemonMoveList from "./PokemonMoveList";
+import { notFound } from "next/navigation";
 
 const getData = async (url) => {
   const data = await axios
@@ -32,12 +33,14 @@ const Detail = ({ params: { id } }, PageProps) => {
   const details = use(
     getData(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
   );
+
+  if (!details) return notFound();
+
   const type = use(getData(`https://pokeapi.co/api/v2/pokemon/${id}/`));
   const locations = use(
     getData(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`)
   );
 
-  const text = details.flavor_text_entries[0]?.flavor_text;
   const pokemonName = details.name;
   const firstLetter = pokemonName.charAt(0).toUpperCase();
   const pokemonFullName = firstLetter + pokemonName.substring(1);
@@ -68,7 +71,7 @@ const Detail = ({ params: { id } }, PageProps) => {
   };
 
   return (
-    <div className="flex relative flex-col lg:flex-row min-h-screen overflow-hidden pt-28 pl-9 pr-9 pb-9 lg:pt-0">
+    <div className="flex relative flex-col lg:flex-row min-h-screen overflow-hidden pt-20 pl-9 pr-9 pb-9 lg:pt-0">
       <div className=" flex items-center justify-center lg:h-screen lg:w-2/4 lg:fixed lg:right-0">
         <div
           className="lg:absolute lg:top-0 lg:right-0 lg:h-[120vh] lg:w-full lg:-mr-6 lg:block lg:rotate-2 hidden"
@@ -76,7 +79,7 @@ const Detail = ({ params: { id } }, PageProps) => {
         ></div>
         <div className="relative">
           <PokemonImage
-            image={`/ani-front/${pokemonName}.gif`}
+            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
             alt={pokemonName}
             fallback={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
           />
@@ -84,7 +87,7 @@ const Detail = ({ params: { id } }, PageProps) => {
       </div>
       <section className="flex flex-col items-center justify-center mt-8 lg:w-2/4 lg:px-[5%] lg:mt-0">
         <div className="w-full lg:h-screen lg:flex lg:flex-col lg:justify-center lg:relative">
-          <div className="hidden lg:h-full lg:w-full lg:block lg:absolute lg:top-0 lg:left-0">
+          <div className="hidden lg:h-full lg:w-full lg:block lg:absolute lg:top-0 lg:left-0 -z-10">
             <AiOutlineArrowDown className="h-10 w-auto absolute bottom-1/4 left-4 -translate-x-2/4 -translate-y-0" />
           </div>
           <div className="flex items-center">
@@ -105,8 +108,16 @@ const Detail = ({ params: { id } }, PageProps) => {
               </p>
             ))}
           </div>
-          <p className="mt-3 lg:max-w-[65%]">{text}</p>
-          <div className=" w-full flex justify-end mt-2">
+          <div className="h-auto w-full md:max-w-[60%] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-xl py-1 px-2 mt-3">
+            {details.flavor_text_entries.map((entry, index) => (
+              <p key={index} className="mt-3 w-full">
+                {entry.language.name === "en" &&
+                  entry.version.name === "red" &&
+                  entry.flavor_text}
+              </p>
+            ))}
+          </div>
+          <div className="w-full flex justify-end mt-2">
             <AiOutlineArrowDown className="h-6 w-auto lg:hidden " />
           </div>
         </div>
