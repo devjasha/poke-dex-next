@@ -111,9 +111,10 @@ const Detail = ({ params: { id } }, PageProps) => {
           <div className="h-auto w-full md:max-w-[60%] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-xl py-1 px-2 mt-3">
             {details.flavor_text_entries.map((entry, index) => (
               <p key={index} className="mt-3 w-full">
-                {entry.language.name === "en" &&
-                  entry.version.name === "red" &&
-                  entry.flavor_text}
+                {entry.language.name === "en"
+                  ? entry.version.name === "red" ||
+                    (entry.version.name === "heartgold" && entry.flavor_text)
+                  : ""}
               </p>
             ))}
           </div>
