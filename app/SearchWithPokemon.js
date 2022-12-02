@@ -3,7 +3,7 @@
 import PokemonSearch from "./PokemonSearch";
 import PokemonList from "./PokemonList";
 import { useState } from "react";
-import Fuse from "Fuse.js";
+import Fuse from "fuse.js";
 
 const SearchWithPokemon = ({ apiData }) => {
   const [query, setQuery] = useState("");
