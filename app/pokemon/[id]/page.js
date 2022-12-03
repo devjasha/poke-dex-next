@@ -113,7 +113,9 @@ const Detail = ({ params: { id } }, PageProps) => {
               <p key={index} className="mt-3 w-full">
                 {entry.language.name === "en"
                   ? entry.version.name === "red" ||
-                    (entry.version.name === "heartgold" && entry.flavor_text)
+                    entry.version.name === "heartgold" ||
+                    entry.version.name === "x" ||
+                    (entry.version.name === "black" && entry.flavor_text)
                   : ""}
               </p>
             ))}
