@@ -9,9 +9,11 @@ import {
   AiOutlineFileText,
   AiOutlineAudio,
   AiOutlineClose,
+  AiOutlineApartment,
 } from "react-icons/ai";
 import { IoStatsChart, IoLocationSharp } from "react-icons/io5";
 import { HiOutlineSparkles } from "react-icons/hi";
+import { GrVulnerability } from "react-icons/gr";
 import Link from "next/link";
 import Image from "next/image";
 import PokemonMoveList from "./PokemonMoveList";
@@ -40,6 +42,8 @@ const Detail = ({ params: { id } }, PageProps) => {
   const locations = use(
     getData(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`)
   );
+
+  const evolutionChain = use(getData(details.evolution_chain.url));
 
   const pokemonName = details.name;
   const firstLetter = pokemonName.charAt(0).toUpperCase();
@@ -156,6 +160,97 @@ const Detail = ({ params: { id } }, PageProps) => {
         </div>
         <div className="w-full mt-10 lg:mt-24">
           <div className="flex items-center">
+            <h1 className="text-2xl">Evolution</h1>
+            <AiOutlineApartment
+              className="h-8 w-8 ml-3"
+              style={{
+                color: colours[type.types[0].type.name],
+              }}
+            />
+          </div>
+          <div className="flex flex-col md:flex-row justify-center md:justify-start items-center w-full md:pt-5">
+            {evolutionChain.chain.evolves_to.map((evolution, index) => {
+              const evolutionIdOne = evolutionChain.chain.species.url.split(
+                /pokemon-species\/(\d+)/gi
+              )[1];
+              const evolutionIdTwo = evolution.species.url.split(
+                /pokemon-species\/(\d+)/gi
+              )[1];
+              return (
+                <>
+                  <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0">
+                    <Image
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdOne}.png`}
+                      height={200}
+                      width={200}
+                      alt={evolution.species.name}
+                    />
+                    <h1>{evolutionChain.chain.species.name}</h1>
+                  </div>
+                  {evolution.evolution_details.map((detail, index) => (
+                    <div
+                      key={index}
+                      className="w-32 h-12 flex items-center justify-center"
+                    >
+                      <h1>
+                        lvl. {detail.min_level != null && detail.min_level}
+                      </h1>
+                      <AiOutlineArrowDown className="ml-3 block md:hidden" />
+                    </div>
+                  ))}
+
+                  <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center ">
+                    <Image
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdTwo}.png`}
+                      height={200}
+                      width={200}
+                      alt={evolution.species.name}
+                    />
+                    <h1 key={index}>{evolution.species.name}</h1>
+                  </div>
+                  {evolution.evolves_to.map((entry, index) => {
+                    const evolutionIdThree = entry.species.url.split(
+                      /pokemon-species\/(\d+)/gi
+                    )[1];
+                    return (
+                      <>
+                        {entry.evolution_details.map((detail, index) => {
+                          return (
+                            <>
+                              {detail.min_level != null && (
+                                <div
+                                  key={index}
+                                  className="w-32 h-12 flex items-center justify-center"
+                                >
+                                  <h1>lvl. {detail.min_level}</h1>
+                                  <AiOutlineArrowDown className="ml-3 block md:hidden" />
+                                </div>
+                              )}
+                            </>
+                          );
+                        })}
+                        <div
+                          key={index}
+                          className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center"
+                        >
+                          <Image
+                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdThree}.png`}
+                            height={200}
+                            width={200}
+                            alt={evolution.species.name}
+                          />
+                          <h1 key={index}>{entry.species.name}</h1>
+                        </div>
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
+          </div>
+        </div>
+        <div className="w-full mt-10 lg:mt-24">
+          <div className="flex items-center">
             <h1 className="text-2xl">Abilities</h1>
             <AiFillExperiment
               className="h-8 w-8 ml-3"
@@ -201,12 +296,14 @@ const Detail = ({ params: { id } }, PageProps) => {
               width="100"
               height="100"
               alt={pokemonName}
+              className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mr-3"
             />
             <Image
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${id}.png`}
               width="100"
               height="100"
               alt={pokemonName}
+              className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center"
             />
           </div>
         </div>

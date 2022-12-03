@@ -1,4 +1,4 @@
-import { AiOutlineFileText } from "react-icons/ai";
+import { BsArrowsMove } from "react-icons/bs";
 import { use } from "react";
 import axios from "axios";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const PokemonMoveList = ({ id }) => {
     <div className="w-full mt-10 lg:mt-24">
       <div className="flex items-center">
         <h1 className="text-2xl">Moves</h1>
-        <AiOutlineFileText className="h-8 w-8 ml-3" />
+        <BsArrowsMove className="h-8 w-8 ml-3" />
       </div>
       <ul className="flex flex-wrap w-full justify-between">
         {type.moves.map((moveName, index) => {
