@@ -178,15 +178,17 @@ const Detail = ({ params: { id } }, PageProps) => {
               )[1];
               return (
                 <>
-                  <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0">
-                    <Image
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdOne}.png`}
-                      height={200}
-                      width={200}
-                      alt={evolution.species.name}
-                    />
-                    <h1>{evolutionChain.chain.species.name}</h1>
-                  </div>
+                  <Link href={`/pokemon/${evolutionIdOne}`}>
+                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0">
+                      <Image
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdOne}.png`}
+                        height={200}
+                        width={200}
+                        alt={evolution.species.name}
+                      />
+                      <h1>{evolutionChain.chain.species.name}</h1>
+                    </div>
+                  </Link>
                   {evolution.evolution_details.map((detail, index) => (
                     <div
                       key={index}
@@ -199,15 +201,17 @@ const Detail = ({ params: { id } }, PageProps) => {
                     </div>
                   ))}
 
-                  <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center ">
-                    <Image
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdTwo}.png`}
-                      height={200}
-                      width={200}
-                      alt={evolution.species.name}
-                    />
-                    <h1 key={index}>{evolution.species.name}</h1>
-                  </div>
+                  <Link href={`/pokemon/${evolutionIdTwo}`}>
+                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center ">
+                      <Image
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdTwo}.png`}
+                        height={200}
+                        width={200}
+                        alt={evolution.species.name}
+                      />
+                      <h1 key={index}>{evolution.species.name}</h1>
+                    </div>
+                  </Link>
                   {evolution.evolves_to.map((entry, index) => {
                     const evolutionIdThree = entry.species.url.split(
                       /pokemon-species\/(\d+)/gi
@@ -229,18 +233,20 @@ const Detail = ({ params: { id } }, PageProps) => {
                             </>
                           );
                         })}
-                        <div
-                          key={index}
-                          className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center"
-                        >
-                          <Image
-                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdThree}.png`}
-                            height={200}
-                            width={200}
-                            alt={evolution.species.name}
-                          />
-                          <h1 key={index}>{entry.species.name}</h1>
-                        </div>
+                        <Link href={`/pokemon/${evolutionIdThree}`}>
+                          <div
+                            key={index}
+                            className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center"
+                          >
+                            <Image
+                              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdThree}.png`}
+                              height={200}
+                              width={200}
+                              alt={evolution.species.name}
+                            />
+                            <h1 key={index}>{entry.species.name}</h1>
+                          </div>
+                        </Link>
                       </>
                     );
                   })}
