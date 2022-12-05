@@ -18,6 +18,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PokemonMoveList from "./PokemonMoveList";
 import { notFound } from "next/navigation";
+import TypeEfficiency from "./TypeEfficiency";
 
 const getData = async (url) => {
   const data = await axios
@@ -284,6 +285,20 @@ const Detail = ({ params: { id } }, PageProps) => {
                 ))}
               </div>
             );
+          })}
+        </div>
+        <div className="w-full mt-10 lg:mt-24">
+          <div className="flex items-center">
+            <h1 className="text-2xl">Type effectiveness</h1>
+            <AiFillExperiment
+              className="h-8 w-8 ml-3"
+              style={{
+                color: colours[type.types[0].type.name],
+              }}
+            />
+          </div>
+          {type.types.map((type, index) => {
+            return <TypeEfficiency key={index} type={type.type.name} />;
           })}
         </div>
         <div className="w-full mt-10 lg:mt-24">
