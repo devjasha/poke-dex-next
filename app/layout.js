@@ -1,7 +1,10 @@
+'use client'
+
 import "../styles/globals.css";
 import { AnalyticsWrapper } from "./analytics";
 import Navigation from "./Navigation";
-export default function RootLayout({ children }) {
+import { SessionProvider } from 'next-auth/react'
+export default function RootLayout({ children, ...props }) {
   return (
     <html>
       <head>
@@ -20,11 +23,13 @@ export default function RootLayout({ children }) {
         <title>Pokedex</title>
       </head>
       <body>
-        <header>
-          <Navigation />
-        </header>
-        {children}
-        <AnalyticsWrapper />
+        <SessionProvider session={props.session}>
+          <header>
+            <Navigation />
+          </header>
+          {children}
+          <AnalyticsWrapper />
+        </SessionProvider>
       </body>
     </html>
   );
