@@ -28,7 +28,7 @@ export default NextAuth({
       return token
     },
     redirect: async (url, _baseUrl) => {
-      if (url === '/profile') {
+      if (url === '/user') {
         return Promise.resolve('/')
       }
       return Promise.resolve('/')
