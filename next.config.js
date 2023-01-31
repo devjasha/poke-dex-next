@@ -12,6 +12,10 @@ const nextConfig = {
         hostname: "raw.githubusercontent.com",
         pathname: "/PokeAPI/sprites/master/sprites/pokemon/**",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      }
     ],
   },
 };
