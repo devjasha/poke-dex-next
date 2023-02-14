@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 import { useState } from "react";
 import { TbPokeball } from "react-icons/tb";
-import { useSession, signIn, signOut } from 'next-auth/react'
 
 export default function Home() {
   const [navbar, setNavbar] = useState(false);
-  const { data: session } = useSession();
   return (
     <>
       <nav className="w-full dark:text-white backdrop-blur-md px-5 border-b-1 border-white fixed top-0 left-0 z-[9999]">
@@ -59,8 +57,9 @@ export default function Home() {
           </div>
           <div className="flex justify-end md:items-center">
             <div
-              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:dark:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:mt-0 md:block lg:pb-0 lg:mt-0 md:border-0 md:w-auto lg:w-auto ${navbar ? "block" : "hidden"
-                }`}
+              className={`w-32 rounded-lg absolute bg-white md:bg-transparent lg:bg-transparent lg:p-0 md:dark:text-white text-black border-2 border-gray-400 px-5 py-5 mt-3 md:mt-0 md:block lg:pb-0 lg:mt-0 md:border-0 md:w-auto lg:w-auto ${
+                navbar ? "block" : "hidden"
+              }`}
             >
               <ul className="items-center justify-center md:flex md:space-y-0 md:space-x-3 space-y-3">
                 <li>
@@ -74,17 +73,6 @@ export default function Home() {
                 </li>
                 <li>
                   <Link href="/contact">Contact</Link>
-                </li>
-                <li>
-                  {!session ? 
-                    <button onClick={() => signIn()}>Sign in</button>
-                  : <div className="flex items-center justify-center">
-                      <Link href="/user" className="mr-3">
-                        <Image src={session.user.image} height={100} width={100} className="h-10 w-10 rounded-full"/>
-                      </Link>
-                      <button onClick={() => signOut()}>Sign out</button>
-                    </div>
-                  }
                 </li>
               </ul>
             </div>
