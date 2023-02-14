@@ -79,7 +79,7 @@ const Detail = ({ params: { id } }, PageProps) => {
     <div className="flex relative flex-col lg:flex-row min-h-screen overflow-hidden pt-20 pl-9 pr-9 pb-9 lg:pt-0">
       <div className=" flex items-center justify-center lg:h-screen lg:w-2/4 lg:fixed lg:right-0">
         <div
-          className="lg:absolute lg:top-0 lg:right-0 lg:h-[120vh] lg:w-full lg:-mr-6 lg:block lg:rotate-2 hidden"
+          className="lg:absolute lg:-top-10 lg:right-0 lg:h-[120vh] lg:w-full lg:-mr-6 lg:block lg:rotate-2 hidden"
           style={{ backgroundColor: colours[type.types[0].type.name] }}
         ></div>
         <div className="relative">
