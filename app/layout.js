@@ -27,7 +27,7 @@ export default function RootLayout({ children, ...props }) {
           });`,
         }}
       />
-      <html>
+      <html lang="en">
         <head>
           <meta
             name="viewport"
