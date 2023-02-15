@@ -1,5 +1,6 @@
 import { use, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ItemList = ({ itemResult }) => {
   const [count, setCount] = useState(21);
@@ -15,8 +16,18 @@ const ItemList = ({ itemResult }) => {
             key={index}
             className="w-32 h-32 mt-4 lg:m-4 rounded-xl p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex items-center justify-center"
           >
-            <Link key={index} href={`/items/${item.item_name}`}>
+            <Link
+              key={index}
+              href={`/items/${item.item_name}`}
+              className="text-center"
+            >
               {item.item_name}
+              <Image
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.item_name}.png`}
+                height={100}
+                width={100}
+                alt={item.item_name}
+              />
             </Link>
           </li>
         ))}

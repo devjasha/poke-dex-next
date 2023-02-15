@@ -30,7 +30,7 @@ const Home = () => {
     <section className="w-full max-w-7xl min-h-screen flex justify-between mx-auto px-9 py-9">
       <div className="w-full mt-24">
         <div className="flex items-center mb-7">
-          <h1 className="text-2xl">Item</h1>
+          <h1 className="text-2xl">Items</h1>
           <AiOutlineFileText className="h-8 w-8 ml-3" />
         </div>
         <SearchWithItem apiData={formattedItemData} />
