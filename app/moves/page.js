@@ -29,7 +29,7 @@ const MoveList = () => {
   return (
     <section className="w-full max-w-7xl min-h-screen flex justify-between mx-auto px-9 py-9">
       <div className="w-full mt-24">
-        <div className="flex items-center">
+        <div className="flex items-center mb-7">
           <h1 className="text-2xl">Moves</h1>
           <AiOutlineFileText className="h-8 w-8 ml-3" />
         </div>

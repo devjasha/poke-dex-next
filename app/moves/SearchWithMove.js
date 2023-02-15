@@ -18,7 +18,7 @@ const SearchWithMove = ({ apiData }) => {
   const moveResult = query ? results.map((result) => result.item) : apiData;
 
   return (
-    <div className="pl-9 pr-9 flex flex-col">
+    <div className="flex flex-col">
       <MoveSearch query={query} setQuery={setQuery} />
       <MoveList moveResult={moveResult} />
     </div>
