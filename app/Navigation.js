@@ -69,6 +69,9 @@ export default function Home() {
                   <Link href="/moves">Moves</Link>
                 </li>
                 <li>
+                  <Link href="/items">Items</Link>
+                </li>
+                <li>
                   <Link href="/about">About</Link>
                 </li>
                 <li>
