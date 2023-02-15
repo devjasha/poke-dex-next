@@ -3,27 +3,10 @@
 import "../styles/globals.css";
 import { AnalyticsWrapper } from "./analytics";
 import Navigation from "./Navigation";
-import { useRouter } from "next/router";
 import Script from "next/script";
 import * as gtag from "./config/gtag";
 
 export default function RootLayout({ children, ...props }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    // function to get the current page url and pass it to gtag pageView() function
-    const handleRouteChange = (url) => {
-      gtag.pageView(url);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-    router.events.on("hashChangeComplete", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      router.events.off("hashChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
   return (
     <>
       <Script
