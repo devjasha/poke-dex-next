@@ -2,10 +2,11 @@ import { AiOutlineFileText } from "react-icons/ai";
 import { use } from "react";
 import axios from "axios";
 import Link from "next/link";
+import SearchWithMove from "./SearchWithMove";
 
 const getData = async (url) => {
   const data = await axios
-    .get(url)
+    .get(`https://pokeapi.co/api/v2/move?limit=100000&offset=0`)
     .then(async (response) => {
       return response.data;
     })
@@ -15,10 +16,15 @@ const getData = async (url) => {
   return data;
 };
 
-const PokemonMoveList = () => {
-  const getMove = use(
-    getData(`https://pokeapi.co/api/v2/move?limit=100000&offset=0`)
-  );
+const data = getData();
+
+const MoveList = () => {
+  const moveData = use(data);
+
+  const formattedMoveData = Object.entries(moveData.results).map((entry) => ({
+    move_name: entry[1].name,
+    move_url: entry[1].url,
+  }));
 
   return (
     <section className="w-full max-w-7xl min-h-screen flex justify-between mx-auto px-9 py-9">
@@ -27,21 +33,10 @@ const PokemonMoveList = () => {
           <h1 className="text-2xl">Moves</h1>
           <AiOutlineFileText className="h-8 w-8 ml-3" />
         </div>
-        <ul className="flex flex-wrap w-full justify-between mt-5">
-          {getMove.results.map((getMoveName, index) => (
-            <li
-              key={index}
-              className="w-32 h-32 mt-4 lg:m-4 rounded-xl p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex items-center justify-center"
-            >
-              <Link key={index} href={`/moves/${getMoveName.name}`}>
-                {getMoveName.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <SearchWithMove apiData={formattedMoveData} />
       </div>
     </section>
   );
 };
 
-export default PokemonMoveList;
+export default MoveList;
