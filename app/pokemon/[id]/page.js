@@ -190,17 +190,25 @@ const Detail = ({ params: { id } }, PageProps) => {
                       <h1>{evolutionChain.chain.species.name}</h1>
                     </div>
                   </Link>
-                  {evolution.evolution_details.map((detail, index) => (
-                    <div
-                      key={index}
-                      className="w-32 h-12 flex items-center justify-center"
-                    >
-                      <h1>
-                        lvl. {detail.min_level != null && detail.min_level}
-                      </h1>
-                      <AiOutlineArrowDown className="ml-3 block md:hidden" />
-                    </div>
-                  ))}
+                  {evolution.evolution_details.map((detail, index) => {
+                    return (
+                      <>
+                        {detail.min_level != null ? (
+                          <div
+                            key={index}
+                            className="w-32 h-12 flex items-center justify-center"
+                          >
+                            <h1>lvl. {detail.min_level}</h1>
+                            <AiOutlineArrowDown className="ml-3 block md:hidden" />
+                          </div>
+                        ) : (
+                          <div className="w-32 h-12 flex items-center justify-center">
+                            <h1>{detail.trigger.name}</h1>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })}
 
                   <Link href={`/pokemon/${evolutionIdTwo}`}>
                     <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center ">
@@ -222,13 +230,17 @@ const Detail = ({ params: { id } }, PageProps) => {
                         {entry.evolution_details.map((detail, index) => {
                           return (
                             <>
-                              {detail.min_level != null && (
+                              {detail.min_level != null ? (
                                 <div
                                   key={index}
                                   className="w-32 h-12 flex items-center justify-center"
                                 >
                                   <h1>lvl. {detail.min_level}</h1>
                                   <AiOutlineArrowDown className="ml-3 block md:hidden" />
+                                </div>
+                              ) : (
+                                <div className="w-32 h-12 flex items-center justify-center">
+                                  <h1>{detail.trigger.name}</h1>
                                 </div>
                               )}
                             </>
