@@ -169,7 +169,7 @@ const Detail = ({ params: { id } }, PageProps) => {
               }}
             />
           </div>
-          <div className="flex flex-col md:flex-row justify-center md:justify-start items-center w-full md:pt-5">
+          <div className="flex flex-col md:flex-row justify-center md:justify-start flex-wrap items-center w-full md:pt-5">
             {evolutionChain.chain.evolves_to.map((evolution, index) => {
               const evolutionIdOne = evolutionChain.chain.species.url.split(
                 /pokemon-species\/(\d+)/gi
@@ -180,7 +180,7 @@ const Detail = ({ params: { id } }, PageProps) => {
               return (
                 <>
                   <Link href={`/pokemon/${evolutionIdOne}`}>
-                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0">
+                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0 ">
                       <Image
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdOne}.png`}
                         height={200}
@@ -202,9 +202,20 @@ const Detail = ({ params: { id } }, PageProps) => {
                             <AiOutlineArrowDown className="ml-3 block md:hidden" />
                           </div>
                         ) : (
-                          <div className="w-32 h-12 flex items-center justify-center">
-                            <h1>{detail.trigger.name}</h1>
-                          </div>
+                          <>
+                            {detail.item != null ? (
+                              <div className="w-32 h-12 flex items-center justify-center">
+                                <Image
+                                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${detail.item.name}.png`}
+                                  height={50}
+                                  width={50}
+                                  alt={detail.item.name}
+                                />
+                              </div>
+                            ) : (
+                              ""
+                            )}
+                          </>
                         )}
                       </>
                     );
@@ -239,9 +250,28 @@ const Detail = ({ params: { id } }, PageProps) => {
                                   <AiOutlineArrowDown className="ml-3 block md:hidden" />
                                 </div>
                               ) : (
-                                <div className="w-32 h-12 flex items-center justify-center">
-                                  <h1>{detail.trigger.name}</h1>
-                                </div>
+                                <>
+                                  {detail.trigger.name === "use-item" ? (
+                                    <>
+                                      {detail.item != null ? (
+                                        <div className="w-32 h-12 flex items-center justify-center">
+                                          <Image
+                                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${detail.item.name}.png`}
+                                            height={50}
+                                            width={50}
+                                            alt={detail.item.name}
+                                          />
+                                        </div>
+                                      ) : (
+                                        ""
+                                      )}
+                                    </>
+                                  ) : (
+                                    <div className="w-32 h-12 flex items-center justify-center">
+                                      <h1>{detail.trigger.name}</h1>
+                                    </div>
+                                  )}
+                                </>
                               )}
                             </>
                           );
