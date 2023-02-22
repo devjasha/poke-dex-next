@@ -44,6 +44,7 @@ export default function RootLayout({ children, ...props }) {
           />
           <meta name="robots" content="max-image-preview:[large]" />
           <meta property="og:image" content="/images/pokedex-preview.png" />
+          <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
           <title>Pokedex</title>
         </head>
         <body>
