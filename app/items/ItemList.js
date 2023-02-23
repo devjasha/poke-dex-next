@@ -8,18 +8,19 @@ const ItemList = ({ itemResult }) => {
   const handleClick = () => {
     setCount(count + 21);
   };
+
   return (
     <section className="min-h-screen flex flex-col">
       <ul className="flex flex-wrap w-full justify-between mt-5">
         {itemResult.slice(0, count).map((item, index) => (
-          <li
+          <a
             key={index}
-            className="w-32 h-32 mt-4 lg:m-4 rounded-xl p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex items-center justify-center"
+            href={`/items/${item.item_name}`}
+            className="text-center"
           >
-            <Link
+            <li
               key={index}
-              href={`/items/${item.item_name}`}
-              className="text-center"
+              className="w-32 h-32 mt-4 lg:m-4 rounded-xl p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex items-center justify-center"
             >
               {item.item_name}
               <Image
@@ -28,8 +29,8 @@ const ItemList = ({ itemResult }) => {
                 width={100}
                 alt={item.item_name}
               />
-            </Link>
-          </li>
+            </li>
+          </a>
         ))}
       </ul>
       <div className="w-full flex items-center justify-center">
