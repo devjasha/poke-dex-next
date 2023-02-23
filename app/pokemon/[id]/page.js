@@ -71,10 +71,6 @@ const Detail = ({ params: { id } }, PageProps) => {
     fairy: "#D685AD",
   };
 
-  const getMoveInformation = () => {
-    console.log(true);
-  };
-
   return (
     <div className="flex relative flex-col lg:flex-row min-h-screen overflow-hidden pt-20 pl-9 pr-9 pb-9 lg:pt-0">
       <div className=" flex items-center justify-center lg:h-screen lg:w-2/4 lg:fixed lg:right-0">
@@ -85,6 +81,7 @@ const Detail = ({ params: { id } }, PageProps) => {
         <div className="relative">
           <PokemonImage
             image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+            shinyImage={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`}
             alt={pokemonName}
             fallback={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
           />
