@@ -13,7 +13,7 @@ const ItemSearch = ({ setQuery, query }) => {
       <div className=" mx-auto">
         <div className="flex items-center ">
           <input
-            placeholder="Search for a pokemon ..."
+            placeholder="Search for a item ..."
             className="px-4 py-2 w-[80%] lg:max-w-7xl rounded-md  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white dark:text-black mr-3"
             id="input"
             value={query}
