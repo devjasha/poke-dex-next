@@ -3,26 +3,86 @@ export default function handler(req, res) {
     results: [
       {
         name: "bulbasaur",
+        types: [
+          {
+            type: {
+              name: "grass",
+            },
+          },
+          {
+            type: {
+              name: "poisen",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/1/",
       },
       {
         name: "ivysaur",
+        types: [
+          {
+            type: {
+              name: "grass",
+            },
+          },
+          {
+            type: {
+              name: "poisen",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/2/",
       },
       {
         name: "venusaur",
+        types: [
+          {
+            type: {
+              name: "grass",
+            },
+          },
+          {
+            type: {
+              name: "poisen",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/3/",
       },
       {
         name: "charmander",
+        types: [
+          {
+            type: {
+              name: "fire",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/4/",
       },
       {
         name: "charmeleon",
+        types: [
+          {
+            type: {
+              name: "fire",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/5/",
       },
       {
         name: "charizard",
+        types: [
+          {
+            type: {
+              name: "fire",
+            },
+            type: {
+              name: "flying",
+            },
+          },
+        ],
         url: "https://pokeapi.co/api/v2/pokemon/6/",
       },
       {
