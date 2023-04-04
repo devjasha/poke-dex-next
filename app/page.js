@@ -5,7 +5,7 @@ import { use } from "react";
 
 const getData = async () => {
   const data = await axios
-    .get("https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0")
+    .get("https://pokedex.world/api/pokemonList")
     .then(async (response) => {
       return response.data;
     })
@@ -23,8 +23,9 @@ const Home = () => {
 
   const formattedPokemonData = Object.entries(pokemonData.results).map(
     (entry) => ({
-      pokemon_name: entry[1].name,
-      pokemon_url: entry[1].url,
+      pokemon_name: entry[1].name.english,
+      pokemon_id: entry[1].id,
+      pokemon_type: entry[1].type,
     })
   );
   return (
