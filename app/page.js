@@ -5,7 +5,7 @@ import { use } from "react";
 
 const getData = async () => {
   const data = await axios
-    .get("https://pokedex.world/api/pokemonList")
+    .get("http://localhost:3001/api/pokemonList")
     .then(async (response) => {
       return response.data;
     })
