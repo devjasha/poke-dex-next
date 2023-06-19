@@ -5,7 +5,7 @@ import { use } from "react";
 
 const getData = async () => {
   const data = await axios
-    .get("http://localhost:3001/api/pokemonList")
+    .get("https://pokemon-api-ye86.vercel.app/pokemonList.json")
     .then(async (response) => {
       return response.data;
     })
