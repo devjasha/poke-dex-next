@@ -5,7 +5,6 @@ const PokemonImage = ({ image, shinyImage, name, fallback }) => {
   const [shiny, setShiny] = useState();
   const changeToShiny = () => {
     setShiny(true);
-
     if (shiny === true) {
       setShiny(false);
     }
@@ -32,11 +31,24 @@ const PokemonImage = ({ image, shinyImage, name, fallback }) => {
         className={shiny ? "block" : "hidden"}
       />
 
+      <h1 className="mb-4 text-2xl">{shiny ? "shiny" : "normal"}</h1>
       <button
         onClick={changeToShiny}
-        className="px-4 py-2 bg-black text-white rounded-lg"
+        className="inline-block text-2xl w-14 py-4 bg-black rounded-full relative border border-black"
+        style={{
+          backgroundColor: shiny ? "#000" : "#fff",
+        }}
       >
-        shiny
+        <div
+          className="absolute top-1/2 left-[4px] px-1 translate-y-1/2 h-6 w-6 bg-white rounded-full"
+          style={{
+            transform: shiny
+              ? "translateX(100%) translateY(-50%)"
+              : "translateX(0) translateY(-50%)",
+            backgroundColor: shiny ? "#fff" : "#000",
+            transition: "ease-in-out .3s",
+          }}
+        ></div>
       </button>
     </div>
   );
