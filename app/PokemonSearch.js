@@ -20,7 +20,7 @@ const PokemonSearch = ({ setQuery, query }) => {
             onChange={handleOnSearch}
           />
           <a
-            className="rounded-md px-4 py-2 bg-black text-white dark:bg-white dark:text-black"
+            className="rounded-md px-6 py-2 bg-black text-white dark:bg-white dark:text-black"
             href="#"
           >
             Search
