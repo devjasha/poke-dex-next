@@ -48,7 +48,7 @@ const Pokemon = ({
         </div>
         <div>
           <h1
-            className="px-4 py-2 w-fit rounded-lg mb-2"
+            className="px-4 py-2 w-fit rounded-lg mb-2 uppercase"
             style={{
               backgroundColor: colours[pokemonType[0]],
             }}
@@ -57,8 +57,9 @@ const Pokemon = ({
           </h1>
         </div>
         <div>
-          <h3 className="text-2xl uppercase mb-3 relative">{pokemonName}</h3>
-          More details <HiChevronRight className="inline" />
+          <h3 className="text-2xl uppercase mb-3 relative flex items-center">
+            {pokemonName} <HiChevronRight className="inline ml-2" />{" "}
+          </h3>
         </div>
       </div>
     </Link>
