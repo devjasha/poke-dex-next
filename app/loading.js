@@ -6,10 +6,11 @@ const Loading = () => {
   return (
     <div className="h-screen w-full flex items-center justify-center">
       <motion.div
-        className="h-[200px] w-[200px] bg-black"
+        className="h-[200px] w-[200px]"
+        style={{ backgroundImage: "url(./images/loading.svg)" }}
         animate={{
           scale: [1, 2, 2, 1, 1],
-          rotate: [0, 0, 180, 180, 0],
+          rotate: [0, 0, 360, 360, 0],
           borderRadius: ["0%", "0%", "50%", "50%", "0%"],
         }}
         transition={{
