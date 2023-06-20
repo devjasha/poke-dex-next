@@ -21,7 +21,7 @@ export default function RootLayout({ children, ...props }) {
         window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-        
+
           gtag('config', '${gtag.GA_TRACKING_ID}', {
             page_path: window.location.pathname
           });`,
@@ -29,6 +29,7 @@ export default function RootLayout({ children, ...props }) {
       />
       <html lang="en">
         <head>
+          <link rel="manifest" href="/manifest.json" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
