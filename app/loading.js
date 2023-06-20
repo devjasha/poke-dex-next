@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 
 const Loading = () => {
   return (
-    <div className="h-screen w-full flex items-center justify-center">
+    <div className="h-screen w-full flex items-center justify-center px-1/2">
       <motion.div
-        className="h-[200px] w-[200px]"
-        style={{ backgroundImage: "url(./images/loading.svg)" }}
+        style={{
+          backgroundImage: "url(./images/loading.svg)",
+          height: "50px",
+          width: "50px",
+        }}
         animate={{
           scale: [1, 2, 2, 1, 1],
           rotate: [0, 0, 360, 360, 0],
-          borderRadius: ["0%", "0%", "50%", "50%", "0%"],
         }}
         transition={{
           duration: 2,
