@@ -38,7 +38,7 @@ const TypeEfficiency = ({ type }) => {
   };
 
   return (
-    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-auto h-auto p-4 rounded-xl mt-5">
+    <div className=" w-auto h-auto rounded-xl mt-5">
       <h1
         className="py-2 w-[100px] px-3 text-xs mt-2 rounded-2xl text-white text-center"
         style={{
@@ -47,8 +47,8 @@ const TypeEfficiency = ({ type }) => {
       >
         {type}
       </h1>
-      <div className="flex flex-wrap items-start justify-around">
-        <div className="mt-5 flex-col justify-center items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>2x damage from</h3>
           {typeStats.damage_relations.double_damage_from.map((type, index) => (
             <p
@@ -62,7 +62,7 @@ const TypeEfficiency = ({ type }) => {
             </p>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>2x damage to</h3>
           {typeStats.damage_relations.double_damage_to.map((type, index) => (
             <p
@@ -76,7 +76,7 @@ const TypeEfficiency = ({ type }) => {
             </p>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>0.5x damage from</h3>
           {typeStats.damage_relations.half_damage_from.map((type, index) => (
             <p
@@ -90,7 +90,7 @@ const TypeEfficiency = ({ type }) => {
             </p>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>0.5x damage to</h3>
           {typeStats.damage_relations.half_damage_to.map((type, index) => (
             <p
@@ -104,7 +104,7 @@ const TypeEfficiency = ({ type }) => {
             </p>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>No damage from</h3>
           {typeStats.damage_relations.no_damage_from.map((type, index) => (
             <p
@@ -118,7 +118,7 @@ const TypeEfficiency = ({ type }) => {
             </p>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col justify-center items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-4 py-6 rounded-xl">
           <h3>No damage to</h3>
           {typeStats.damage_relations.no_damage_to.map((type, index) => (
             <p

@@ -1,7 +1,12 @@
 {
   "name": "poke-dex",
   "version": "0.1.0",
-  "private": true,
+  "keywords": [
+    "pokemon",
+    "pokedex",
+    "pikachu",
+    "Kanto"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
