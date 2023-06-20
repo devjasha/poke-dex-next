@@ -11,6 +11,7 @@
   "dependencies": {
     "@vercel/analytics": "^0.1.5",
     "axios": "^1.1.3",
+    "framer-motion": "^10.12.16",
     "fuse": "^0.4.0",
     "fuse.js": "^6.6.2",
     "next": "13.0.0",
