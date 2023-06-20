@@ -97,7 +97,7 @@ const Detail = ({ params: { id } }, PageProps) => {
             <AiOutlineNumber className="font-medium text-3xl ml-3" />
             <h1 className="font-medium text-3xl">{id}</h1>
           </div>
-          <div className="flex items-center my-2">
+          <div className="flex items-center my-4">
             {type.types.map((type, index) => (
               <p
                 key={index}
@@ -110,7 +110,7 @@ const Detail = ({ params: { id } }, PageProps) => {
               </p>
             ))}
           </div>
-          <div className="h-auto w-full md:max-w-[60%] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-xl py-1 px-2 mt-3">
+          <div className="h-auto w-full md:max-w-[60%]">
             {details.flavor_text_entries.map((entry, index) => (
               <p key={index} className="mt-3 w-full">
                 {entry.language.name === "en"

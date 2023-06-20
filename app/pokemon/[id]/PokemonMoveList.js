@@ -27,12 +27,12 @@ const PokemonMoveList = ({ id }) => {
         <h1 className="text-2xl">Moves</h1>
         <BsArrowsMove className="h-8 w-8 ml-3" />
       </div>
-      <ul className="flex flex-wrap w-full justify-between">
+      <ul className="grid grid-cols-2">
         {type.moves.map((moveName, index) => {
           return (
             <li
               key={index}
-              className="w-32 h-32 mt-4 lg:m-4 rounded-xl p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] flex items-center justify-center"
+              className="h-auto mt-4 rounded-xl py-4 flex hover:underline "
             >
               {getMove.results.map(
                 (getMoveName, index) =>
