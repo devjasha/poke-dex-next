@@ -176,13 +176,14 @@ const Detail = ({ params: { id } }, PageProps) => {
               )[1];
               return (
                 <>
-                  <Link href={`/pokemon/${evolutionIdOne}`}>
-                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0 ">
+                  <Link href={`/pokemon/${evolutionIdOne}`} className="group">
+                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center mt-5 md:mt-0 tansition duration-200 ease-out group-hover:scale-105">
                       <Image
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdOne}.png`}
                         height={200}
                         width={200}
                         alt={evolution.species.name}
+                        className="tansition duration-200 ease-out group-hover:scale-125"
                       />
                       <h1>{evolutionChain.chain.species.name}</h1>
                     </div>
@@ -218,13 +219,14 @@ const Detail = ({ params: { id } }, PageProps) => {
                     );
                   })}
 
-                  <Link href={`/pokemon/${evolutionIdTwo}`}>
-                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center ">
+                  <Link href={`/pokemon/${evolutionIdTwo}`} className="group">
+                    <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center tansition duration-200 ease-out group-hover:scale-105">
                       <Image
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdTwo}.png`}
                         height={200}
                         width={200}
                         alt={evolution.species.name}
+                        className="tansition duration-200 ease-out group-hover:scale-125"
                       />
                       <h1 key={index}>{evolution.species.name}</h1>
                     </div>
@@ -273,16 +275,20 @@ const Detail = ({ params: { id } }, PageProps) => {
                             </>
                           );
                         })}
-                        <Link href={`/pokemon/${evolutionIdThree}`}>
+                        <Link
+                          href={`/pokemon/${evolutionIdThree}`}
+                          className="group"
+                        >
                           <div
                             key={index}
-                            className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center"
+                            className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-32 h-32 p-4 rounded-xl flex flex-col items-center justify-center tansition duration-200 ease-out group-hover:scale-105"
                           >
                             <Image
                               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evolutionIdThree}.png`}
                               height={200}
                               width={200}
                               alt={evolution.species.name}
+                              className="tansition duration-200 ease-out group-hover:scale-125"
                             />
                             <h1 key={index}>{entry.species.name}</h1>
                           </div>

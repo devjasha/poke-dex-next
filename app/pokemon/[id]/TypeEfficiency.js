@@ -40,9 +40,9 @@ const TypeEfficiency = ({ type }) => {
   return (
     <div className=" w-auto h-auto rounded-xl mt-5">
       <h1
-        className="py-2 w-[100px] px-3 text-xs mt-2 rounded-2xl text-white text-center"
+        className="mt-2 text-xl uppercase "
         style={{
-          backgroundColor: colours[type],
+          color: colours[type],
         }}
       >
         {type}
@@ -53,7 +53,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.double_damage_from.map((type, index) => (
             <p
               key={index}
-              className="py-2 w-[100px] px-3 text-xs mt-2 rounded-2xl text-white text-center"
+              className="py-2 w-auto px-6 text-xs mt-2 rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
@@ -67,7 +67,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.double_damage_to.map((type, index) => (
             <p
               key={index}
-              className="py-2 w-[100px] px-3 text-xs mt-2 rounded-2xl text-white text-center"
+              className="py-2 w-auto px-6 text-xs mt-2 rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
@@ -81,7 +81,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.half_damage_from.map((type, index) => (
             <p
               key={index}
-              className="py-2 px-3 w-[100px] text-xs mt-2 rounded-2xl text-white text-center"
+              className="py-2 px-6 w-auto text-xs mt-2 rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
@@ -95,7 +95,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.half_damage_to.map((type, index) => (
             <p
               key={index}
-              className="py-2 px-3 w-[100px] text-xs mt-2 rounded-2xl text-white text-center"
+              className="py-2 px-6 w-auto text-xs mt-2 rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
@@ -109,7 +109,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.no_damage_from.map((type, index) => (
             <p
               key={index}
-              className="py-2 px-3 text-xs w-[100px] mt-2 rounded-2xl text-white text-center"
+              className="py-2 px-6 text-xs w-auto mt-2 rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
@@ -123,7 +123,7 @@ const TypeEfficiency = ({ type }) => {
           {typeStats.damage_relations.no_damage_to.map((type, index) => (
             <p
               key={index}
-              className="py-2 px-3 text-xs mt-2 w-[100px] rounded-2xl text-white text-center"
+              className="py-2 px-6 text-xs mt-2 w-auto rounded-2xl text-white text-center"
               style={{
                 backgroundColor: colours[type.name],
               }}
